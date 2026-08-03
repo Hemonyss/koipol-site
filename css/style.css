@@ -1,0 +1,32 @@
+:root {
+    --bg: #363334;
+    --bg-accent: #242324;
+    --bg-burger: #282728;
+    --text: #ECE9EC;
+    --text-accent: #8C8185;
+    --btn: #F67BFC;
+}
+
+.light {
+    --bg: #ECE9EC;
+    --bg-accent: #DBD5D9;
+    --bg-burger: #E1DBDF;
+    --text: #363334;
+    --text-accent: #8C8185;
+    --btn: #7D92BA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
+
+    background: var(--bg);
+}

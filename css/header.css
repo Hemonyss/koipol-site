@@ -1,0 +1,121 @@
+.header {
+  background: var(--bg-accent);
+}
+
+.nav {
+  margin: 0 auto;
+  padding: 0 clamp(8px, 5vw, 16px);
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  container-type: inline-size;
+
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--bg) 65%, transparent);
+
+  position: relative;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: clamp(1rem, 1.2cqi, 2.5rem);
+}
+
+.theme-toggle {
+  margin: 0 auto;
+  margin-right: 32px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.theme-toggle:hover, .theme-toggle:focus-visible, .theme-toggle:active {
+  background: color-mix(in srgb, var(--btn) 10%, transparent);
+  transform: translateY(-2px);
+  
+  outline: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  border-radius: 6px;
+}
+
+.nav-links a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.nav-links a:hover, .nav-links a:focus-visible, .nav-links a:active {
+  background: color-mix(in srgb, var(--btn) 10%, transparent);
+  transform: translateY(-2px);
+  
+  outline: none;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.nav-burger span {
+  height: 2px;
+  width: 24px;
+  background: var(--text);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+@media (max-width: 600px) {
+  .nav-burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    flex-direction: column;
+    background: var(--bg-burger);
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links a {
+    padding: 16px;
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    max-height: 100vh;
+  }
+
+  /* Burger menu */
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
