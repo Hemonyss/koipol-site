@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="main.css">
 </head>
     <body>
-        <div class="gallery">
-            <img src="koipol.jpg" loading="lazy" alt="Койпол носочек!">
-            <img src="murgik1.jpg" loading="lazy" alt="Бубы Муржика">
-            <img src="murgik2.jpg" loading="lazy" alt="Муржик с медалькой">
-            <img src="murgik3.jpg" loading="lazy" alt="Муржик банан!">
+        <div class="gallery" id="gallery">
+
         </div>
     </body>
+    <script>
+        const totalImg = 4;
+        const gallery = document.getElementById('gallery');
+
+        gallery.innerHTML = Array.from({length: totalImg}, (_, i) => 
+            `<img src="images/${i}.jpg" loading="lazy" alt="Image ${i}">`
+        ).join('')
+    </script>
 </html>
