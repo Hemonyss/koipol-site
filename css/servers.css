@@ -1,0 +1,76 @@
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem 1.5rem;
+}
+
+.server-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem 1.8rem;
+    width: 100%;
+}
+
+.server-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--bg) 65%, transparent);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    background: var(--bg-accent);
+    background-image: url('/assets/cards/palworld.webp');
+    background-size: cover;
+    background-position: center
+}
+
+.server-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.server-card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text);
+    font-size: 2.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 12px color-mix(in srgb, var(--bg) 65%, transparent);
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.server-card:hover::before {
+    opacity: 0;
+}
+
+.server-card:hover .server-card-text {
+    transform: translate(-50%, 80%);
+    opacity: 1;
+}
+
+.server-card:hover {
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--bg) 65%, transparent);
+}
+
+@media (max-width: 768px) {
+    .server-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.4rem 1.2rem;
+    }
+}
