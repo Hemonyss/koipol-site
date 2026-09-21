@@ -63,7 +63,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: clamp(8px, 1.2vh, 24px) clamp(12px, 1vw, 48px);
+  padding: clamp(8px, 0.8vh, 24px) clamp(12px, 1vw, 48px);
   border-radius: clamp(6px, 8px, 24px);
   transition: background 0.15s ease-out, transform 0.15s ease-out;
 }
